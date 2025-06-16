@@ -1,0 +1,26 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "main-container",
+    "home-app",
+    "theclass-app",
+    "watch-list-app",
+    "community-app",
+    "navigation-bar-app",
+    "google-authentication",
+    "kakao-authentication"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run start --parallel"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "external-remotes-plugin": "^1.0.0",
+    "lerna": "^8.2.2"
+  },
+  "dependencies": {
+    "@mui/material": "^7.1.1"
+  }
+}
