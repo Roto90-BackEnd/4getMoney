@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "0.0.0",
+  "packages:": [
+    "main-container",
+    "home-app",
+    "theclass-app",
+    "watch-list-app",
+    "community-app",
+    "navigation-bar-app",
+    "google-authentication",
+    "kakao-authentication"
+  ],
+  "hoist": true
+}
