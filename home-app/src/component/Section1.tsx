@@ -1,31 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import phoneImage from "../assets/mockup_ko.jpg";
+import phoneImage from "../assets/mockup_ko.png";
 
 
 const Wrapper = styled.div`
+  width: 100vw; 
   background-color: #0f1117;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 8%;
-    padding-bottom: 0;
+  gap: 2rem;
+  padding: 3rem 5%;
   box-sizing: border-box;
+    padding-bottom: 0;  
+  overflow: hidden;
 
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
     padding: 2rem;
+    gap: 2rem;
   }
 `;
 
 const LeftSection = styled.div`
   flex: 1;
   color: white;
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;  
 
   @media (max-width: 768px) {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 `;
 
@@ -92,14 +101,23 @@ const RightSection = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center; 
+  background-color: #0f1117;
 
   img {
-    max-width: 600px;
-    width: 100%;
+    max-width: 100%;
+    max-height: 700px; 
+    width: auto;
     height: auto;
     object-fit: contain;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 90vw;
   }
 `;
+
 
 const Section1 = () => {
     return (
