@@ -65,7 +65,7 @@ const root = ReactDOM.createRoot(container);
 root.render(<App />);
 
 const Wrap = styled.div`
-  padding-top: 75px;
+  padding-top: 57px;
   display: flex;
   justify-content: center;
   align-items: center;
