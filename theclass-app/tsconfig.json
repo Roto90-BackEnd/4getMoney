@@ -14,7 +14,8 @@
     "allowImportingTsExtensions": true,
     "paths": {
       "*": ["./@mf-types/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "ts-node": {
