@@ -53,7 +53,7 @@ const App: React.FC = () => {
                 <Button onClick={() => navigate("/community")}>
                     커뮤니티
                 </Button>
-                <Button>
+                <Button onClick={() => navigate("/login-page")}>
                     로그인
                 </Button>
                 <Button>
