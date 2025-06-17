@@ -6,7 +6,6 @@ import {useNavigate} from "react-router-dom";
 import env from "../env.ts";
 
 const KakaoAuthenticationPage: React.FC = () => {
-    //우리가 Routes로 감싸놓은 ROuter설정을 활용할 수 있게 지원함
     const navigate = useNavigate();
 
     const handleKakaoLogin = () => {
@@ -50,34 +49,13 @@ const KakaoAuthenticationPage: React.FC = () => {
                 navigate('/');
             }, 100);
         };
-        //팝업으로 메세지가 전달되면 receiveMessage()가 받으렴
         window.addEventListener('message', receiveMessage);
     };
-
-    //항상 컴포넌트의 return에 표현되는 것이 UI에 해당함
-    //Box는 React MUI에 해당하는 UI템플릿입니다
-    //<div>태그에 해당하며 스타일을 조금더 편리하게 지정 할 수 있도록 도와줌
-    //p: 내부여백 (padding) 1당 8px
-    //maxWidth: 최대 넓이
-    //margin: 0 auto = 가운데 정렬
     return (
         <Box sx={{p: 4, maxWidth: 400, margin: "0 auto"}}>
-            {/*
-            Typography는 텍스트 표현하는 필드
-            variant : html의 <h5>처럼 스타일 해달라는 뜻
-            gutterBottom 아래쪽 적당 여백
-            */}
             <Typography variant="h5" gutterBottom>
                 로그인
             </Typography>
-            {/*
-            SocialLoginButton = 사실상 또다른 컴포넌트
-            컴포넌트 내부에서 또 다른 컴포넌트 사용 가능
-            provider 실제 socialLoginButton이 사용하는 파라미터값
-            provider를 사용한 이유는 kakao 로그인임을 명시하기 위함
-            onClick socialLoginButton이 사용하는 파라미터
-            onClick의 경우 클릭 했을 때 무엇을 할 것인지 외부에서 중입하기 위함
-            */}
             <SocialLoginButton provider="kakao" onClick={handleKakaoLogin}/>
         </Box>
     );

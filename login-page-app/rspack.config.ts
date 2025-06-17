@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import {DefinePlugin, rspack} from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
@@ -39,6 +39,10 @@ export default defineConfig({
 
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource",
+      },
       {
         test: /\.svg$/,
         type: "asset",
@@ -79,6 +83,13 @@ export default defineConfig({
       template: "./index.html",
     }),
     new ModuleFederationPlugin(mfConfig),
+    new DefinePlugin({
+      "process.env.REACT_APP_KAKAO_AUTHENTICATION_URL": JSON.stringify(
+          process.env.REACT_APP_KAKAO_AUTHENTICATION_URL
+      ),
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "process.env.REACT_APP_GOOGLE_AUTHENTICATION_URL": JSON.stringify(process.env.REACT_APP_GOOGLE_AUTHENTICATION_URL),
+    }),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
   optimization: {
