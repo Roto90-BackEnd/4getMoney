@@ -9,7 +9,8 @@
     "community-app",
     "navigation-bar-app",
     "google-authentication",
-    "kakao-authentication"
+    "kakao-authentication",
+    "login-page-app"
   ],
   "hoist": true
 }
