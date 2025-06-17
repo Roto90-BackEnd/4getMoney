@@ -40,6 +40,10 @@ export default defineConfig({
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /\.svg$/,
         type: "asset",
       },
