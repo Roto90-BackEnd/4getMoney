@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { CircularProgress } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {GlobalStyle} from "./styles/GlobalStyle.ts";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HomeApp = lazy(() => import("homeApp/App"));
@@ -13,6 +14,7 @@ const GoogleAuthenticationApp = lazy(
   () => import("googleAuthenticationApp/App")
 );
 const KakaoAuthenticationApp = lazy(() => import("kakaoAuthenticationApp/App"));
+const LoginPageApp = lazy(() => import("loginPageApp/App"));
 
 const App = () => {
   const [isNavigationBarLoaded, setIsNavigationBarLoaded] = useState(false);
@@ -25,6 +27,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <GlobalStyle/>
       <Suspense fallback={<CircularProgress />}>
       <NavigationBarApp />
         <Routes>
@@ -41,6 +44,7 @@ const App = () => {
             path="/kakao-authentication/*"
             element={<KakaoAuthenticationApp />}
           />
+          <Route path="/login-page" element={<LoginPageApp />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
