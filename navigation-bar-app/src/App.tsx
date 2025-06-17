@@ -1,6 +1,9 @@
 import React, {useState} from "react";
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
+import styled from "styled-components";
+
+import logo from './assets/logo.png';
 
 import HomeIcon from "@mui/icons-material/Home";
 import CodeIcon from "@mui/icons-material/Code";
@@ -17,70 +20,97 @@ const App: React.FC = () => {
         setIsLoggedIn(isLoggedIn => !isLoggedIn);
     };
 
+    const navigate = useNavigate();
+
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    EDDI
-                </Typography>
+        <>
+            <Wrap>
+                <TitleWrap onClick={() => navigate("/")}>
+                    <TitleLogo src={logo} alt="logo"/>
+                    <TitleText>4getMoney</TitleText>
+                </TitleWrap>
+
                 <Button
-                    color="inherit"
-                    component={Link}
-                    to="/home"
-                    startIcon={<HomeIcon />}
-                >
-                    Home
-                </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/theclass"
-                    startIcon={<CodeIcon />}
+                    onClick={() => {
+                        navigate("/theclass");
+                    }}
                 >
                     더 클래스
                 </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/watch-list"
-                    startIcon={<JavascriptIcon />}
-                >
-                    주시항목
+                <Button onClick={() => navigate("/watch-list")}>
+
+                관심종목
                 </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/community"
-                    startIcon={<ForumIcon />}
-                >
-                    게시판
+                <Button>
+                    포트폴리오
                 </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/google-authentication/login"
-                    startIcon={<SportsGymnasticsIcon />}
-                >
-                    구글로그인
+                <Button>
+                    실험실
                 </Button>
-                <Button
-                    color="inherit"
-                    component={Link}
-                    to="/kakao-authentication/login"
-                    startIcon={<SportsGymnasticsIcon />}
-                >
-                    카카오로그인
+                <Button>
+                    채팅
                 </Button>
-                {/* 로그인 / 로그아웃 버튼 */}
-                <Button
-                    color="inherit"
-                    onClick={handleAuthClick}
-                    startIcon={isLoggedIn ? <LogoutIcon /> : <LoginIcon />}
-                >
+                <Button onClick={() => navigate("/community")}>
+                    커뮤니티
                 </Button>
-            </Toolbar>
-        </AppBar>
+                <Button>
+                    로그인
+                </Button>
+                <Button>
+                    앱 설치하기
+                </Button>
+
+            </Wrap>
+        </>
     );
 };
 
 export default App
+
+const Wrap = styled.div`
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 75px;
+    background-color: #131722;
+`
+const TitleWrap = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 29px;
+    gap:10px;
+`
+const TitleLogo = styled.img`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: conic-gradient(
+            #44928C 0deg 90deg,
+            #D28F41 90deg 180deg,
+            #A02C41 180deg 270deg,
+            #183B5D 270deg 360deg  
+    );
+`
+const TitleText = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #FFFFFF;
+`
+const Button = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background-color: #131722;
+    cursor: pointer;
+`

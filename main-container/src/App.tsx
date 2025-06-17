@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { CircularProgress } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {GlobalStyle} from "./styles/GlobalStyle.ts";
+import styled from "styled-components";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HomeApp = lazy(() => import("homeApp/App"));
@@ -30,6 +31,7 @@ const App = () => {
       <GlobalStyle/>
       <Suspense fallback={<CircularProgress />}>
       <NavigationBarApp />
+        <Wrap>
         <Routes>
           <Route path="/" element={<div>Home Page</div>} />
           <Route path="/home" element={<HomeApp />} />
@@ -46,6 +48,7 @@ const App = () => {
           />
           <Route path="/login-page" element={<LoginPageApp />} />
         </Routes>
+        </Wrap>
       </Suspense>
     </BrowserRouter>
   );
@@ -60,3 +63,10 @@ if (!container) {
 
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
+
+const Wrap = styled.div`
+  padding-top: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
