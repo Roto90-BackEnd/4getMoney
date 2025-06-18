@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import profile1 from "./assets/profile1.png";
+import profile2 from "./assets/profile2.png";
+import profile3 from "./assets/profile3.png";
+import profile4 from "./assets/profile4.png";
+import profile5 from "./assets/profile5.png";
 
 const profileImages = [
-    "/src/assets/profile1.png",
-    "/src/assets/profile2.png",
-    "/src/assets/profile3.png",
-    "/src/assets/profile4.png",
-    "/src/assets/profile5.png",
 ];
 
 function getRandomProfileImage() {
@@ -103,16 +103,19 @@ export default function Timeline() {
                     ))}
                 </CategoryBar>
                 <PostList>
-                    {filteredPosts.map((post, i) => (
-                        <Post key={i}>
-                            <ProfileCircle />
-                            <PostContent>
-                                <Username>{post.username}</Username>
-                                <PostTime>{post.time}</PostTime>
-                                <PostText>{post.content}</PostText>
-                            </PostContent>
-                        </Post>
-                    ))}
+                    {filteredPosts.map((post, i) => {
+                        const profileImg = getRandomProfileImage();
+                        return (
+                            <Post key={i}>
+                                <ProfileCircle src={profileImg} />
+                                <PostContent>
+                                    <Username>{post.username}</Username>
+                                    <PostTime>{post.time}</PostTime>
+                                    <PostText>{post.content}</PostText>
+                                </PostContent>
+                            </Post>
+                        );
+                    })}
                 </PostList>
             </LeftPanel>
 
@@ -217,11 +220,11 @@ const Post = styled.div`
     border-radius: 10px;
 `;
 
-const ProfileCircle = styled.div`
+const ProfileCircle = styled.img`
     width: 40px;
     height: 40px;
-    background-color: #1e90ff;
     border-radius: 50%;
+    object-fit: cover;
     margin-right: 15px;
 `;
 
