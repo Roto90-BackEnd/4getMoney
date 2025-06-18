@@ -87,6 +87,10 @@ export default function Timeline() {
                 <Title>
                     타임라인 <span>팔로잉</span>
                 </Title>
+                <IconContainerLeft>
+                    <SearchIconLeft>🔍</SearchIconLeft>
+                    <PlusIconLeft>+</PlusIconLeft>
+                </IconContainerLeft>
                 <CategoryBar>
                     {categories.map((cat, i) => (
                         <Category
@@ -137,7 +141,6 @@ export default function Timeline() {
     );
 }
 
-// Styled-components
 const Container = styled.div`
     display: flex;
     padding: 30px;
@@ -146,22 +149,29 @@ const Container = styled.div`
 `;
 
 const LeftPanel = styled.div`
-    flex: 2;
-    min-width: 600px;
-    padding-right: 360px; /* RightPanel 고정 공간 확보 */
+    flex-grow: 1;
+    width: 800px;
+    max-width: calc(100% - 300px - 30px);
+    background-color: #1c1f2c;
+    border-radius: 12px;
+    padding: 20px;
+    margin-right: 30px;
+    border: 1px solid #333;
+    position: relative;
 `;
 
 const RightPanel = styled.div`
-    position: fixed;
+    position: sticky;
     top: 30px;
-    right: 30px;
+    align-self: flex-start;
     width: 300px;
     background-color: #1c1f2c;
     border-radius: 12px;
     padding: 20px;
-    height: calc(100vh - 60px); /* 전체 뷰 높이에서 top+bottom 마진 제외 */
+    height: calc(100vh - 60px);
     overflow-y: auto;
     z-index: 10;
+    border: 1px solid #333;
 `;
 
 const Title = styled.h1`
@@ -275,4 +285,33 @@ const Thumbnail = styled.div`
         border-radius: 10px;
         object-fit: cover;
     }
+`;
+
+const IconContainerLeft = styled.div`
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    display: flex;
+    gap: 10px;
+`;
+
+const SearchIconLeft = styled.div`
+    width: 32px;
+    height: 32px;
+    background-color: #ccc; 
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #000;
+    &:hover {
+        opacity: 0.8;
+    }
+`;
+
+const PlusIconLeft = styled(SearchIconLeft)`
+    background-color: #ffd400; 
+    color: #000;
 `;
