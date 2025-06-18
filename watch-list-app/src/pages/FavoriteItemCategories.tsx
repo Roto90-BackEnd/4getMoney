@@ -4,9 +4,9 @@ import Thirdbox from "../components/Thirdbox.tsx";
 
 const FavoriteItemCategories = () => {
     return (
-        <div className="bg-white text-white min-h-screen flex flex-col">
+        <div className="text-white ">
             <main className="space">
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col gap-3">
                     <Firstbox />
                     <Secondbox />
                 </div>
