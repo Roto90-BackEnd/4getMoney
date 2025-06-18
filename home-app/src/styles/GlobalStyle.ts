@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-      background-color: #0f1117;
-      color: #111;
+      background-color: #131722;
+      
   }
 `;
 

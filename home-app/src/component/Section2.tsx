@@ -7,7 +7,7 @@ import partner4 from "../assets/hana_bank.jpg";
 import partner5 from "../assets/koscom.jpg";
 
 const Wrapper = styled.section`
-  background-color: #0f1117;
+  background-color: #131722;
   padding-left:8rem;
     display: flex;
     align-items: center;

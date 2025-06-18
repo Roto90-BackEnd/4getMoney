@@ -5,23 +5,17 @@ import phoneImage from "../assets/mockup_ko.png";
 
 const Wrapper = styled.div`
   width: 100vw; 
-  background-color: #0f1117;
+  background-color: #131722;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 3rem 5%;
-  box-sizing: border-box;
+    padding : 6rem 6rem;
+    box-sizing: border-box;
     padding-bottom: 0;  
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem;
-    gap: 2rem;
-  }
 `;
 
 const LeftSection = styled.div`
@@ -31,11 +25,7 @@ const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-    align-items: center;  
-
-  @media (max-width: 768px) {
-    margin-bottom: 0;
-  }
+    align-items: center;
 `;
 
 const Title = styled.h1`
@@ -46,10 +36,6 @@ const Title = styled.h1`
   span {
     color: #fbbf24;
   }
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
 `;
 
 const InputWrapper = styled.div`
@@ -59,10 +45,6 @@ const InputWrapper = styled.div`
   border-radius: 12px;
   overflow: hidden;
   background-color: #1a1b23;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 const Input = styled.input`
@@ -90,19 +72,15 @@ const Button = styled.button`
   &:hover {
     background: linear-gradient(to right, #facc15, #fb923c);
   }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    border-radius: 0 0 12px 12px;
-  }
 `;
 
 const RightSection = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center; 
-  background-color: #0f1117;
+  align-items: center;
+
+    background: linear-gradient(to right, #131722 0%, #1a1d2e 100%);  
 
   img {
     max-width: 100%;
@@ -111,11 +89,9 @@ const RightSection = styled.div`
     height: auto;
     object-fit: contain;
     border-radius: 12px;
+      
   }
 
-  @media (max-width: 768px) {
-    max-width: 90vw;
-  }
 `;
 
 
