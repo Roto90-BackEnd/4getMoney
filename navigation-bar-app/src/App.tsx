@@ -38,6 +38,23 @@ const App: React.FC = () => {
           }
         })
   }
+  const notLogedIn = () => {
+    Swal.fire({
+      icon: 'warning',
+      title: '로그인후 이용 가능 하십니다.',
+      text: '로그인 화면으로 이동 하시 겠습니까?',
+      showCancelButton: true,
+      confirmButtonText: '예',
+      cancelButtonText: '아니오',
+      confirmButtonColor: '#429f50',
+      cancelButtonColor: '#d33',
+    })
+        .then((result) => {
+          if (result.isConfirmed) {
+            navigate("/login-page");
+          }
+        })
+  }
 
   const handleLanguageChange = (lang: "KOR" | "ENG") => {
     setSelectedLang(lang);
@@ -76,7 +93,8 @@ const App: React.FC = () => {
             >
               더 클래스
             </Button>
-            <Button onClick={() => navigate("/watch-list")}>관심종목</Button>
+            {token ? (<Button onClick={() => navigate("/watch-list")}>관심종목</Button>):(<Button onClick={() => notLogedIn() }>관심종목</Button>)}
+
             <Button onClick={notImplemented}>포트폴리오</Button>
             <Button onClick={notImplemented}>실험실</Button>
             <Button onClick={notImplemented}>채팅</Button>
