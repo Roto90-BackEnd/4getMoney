@@ -58,6 +58,7 @@ const InnerApp = () => {
           <Route path="/login-page" element={<LoginPageApp />} />
         </Routes>
         </Wrap>
+
       </Suspense>
     </BrowserRouter>
       </ThemeProvider>
