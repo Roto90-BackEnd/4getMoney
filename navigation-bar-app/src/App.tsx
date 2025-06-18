@@ -8,7 +8,7 @@ import searchIcon from "./assets/search.svg";
 import Swal from "sweetalert2";
 
 const App: React.FC = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("userToken");
   const navigate = useNavigate();
   const [selectedLang, setSelectedLang] = useState<"KOR" | "ENG">("KOR");
 
@@ -17,7 +17,8 @@ const App: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login-page");
+    setIsOpen(false);
+    navigate("/home");
   };
 
   const notImplemented = () => {
@@ -103,11 +104,13 @@ const App: React.FC = () => {
             </SelectWrap>
             {token ? (
               <Container ref={dropdownRef}>
-                <ProfileButton onClick={() => setIsOpen((prev) => !prev)} />
+                <ProfileWrapper>
+                <ProfileButton imgUrl={logo} onClick={() => setIsOpen((prev) => !prev)} />
+                </ProfileWrapper>
                 {isOpen && (
                   <MenuBox>
                     <UserBlock>
-                      <UserImage />
+                      <UserImage imgUrl={logo}/>
                       <UserDetails>
                         <UserName>흰둥오리</UserName>
                         <UserEmail>unchul87@gmail.com</UserEmail>
@@ -158,6 +161,7 @@ const Wrap = styled.div`
   height: 57px;
   background-color: #131722;
   z-index: 100;
+  user-select: none;
 `;
 const MenuWrap = styled.div`
   display: flex;
@@ -260,6 +264,7 @@ const LeftMenuWrap = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   gap: 30px;
+  
 
   @media (max-width: 1080px) {
     gap: 20px;
@@ -281,6 +286,8 @@ const RightMenuWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+
 
   @media (max-width: 650px) {
     gap: 8px;
@@ -298,7 +305,6 @@ const LangButton = styled.div<{ active: boolean }>`
   display: flex;
   font-size: 10.5px;
   font-weight: 500;
-  cursor: pointer;
   color: ${(props) => (props.active ? "#FFFFFF" : "#7d7f80")};
   user-select: none;
   outline: none;
@@ -335,8 +341,8 @@ const LoginButton = styled.div`
   font-size: 11px;
   color: #ffffff;
   font-weight: 300;
-  cursor: pointer;
   white-space: nowrap;
+  
 `;
 const AppButton = styled.div<{ gradient?: boolean }>`
   display: flex;
@@ -349,7 +355,6 @@ const AppButton = styled.div<{ gradient?: boolean }>`
   font-size: 11.5px;
   color: #ffffff;
   font-weight: 350;
-  cursor: pointer;
   background: ${({ gradient }) =>
       gradient
           ? "linear-gradient(90deg, #FCC853 0%, #FB992A 100%)"
@@ -365,13 +370,29 @@ const Container = styled.div`
   position: relative;
 `;
 
-const ProfileButton = styled.div`
-  width: 36px;
-  height: 36px;
+const ProfileWrapper = styled.div`
+  width: 52px;
+  height: 52px;
+  padding: 2px; /* 외곽선 두께 */
   border-radius: 50%;
-  background-image: url("/profile.png"); // 사용자의 프로필 이미지
+  background: linear-gradient(to left, #CB4B39, #E1B155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 테두리 안쪽이 정확히 원이 되도록 설정 */
+  box-sizing: border-box;
+`;
+
+const ProfileButton = styled.div<{ imgUrl: string }>`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url(${(props) => props.imgUrl});
   background-size: cover;
-  cursor: pointer;
+  background-position: center;
+  box-sizing: border-box;
 `;
 
 const MenuBox = styled.div`
@@ -399,7 +420,7 @@ const UserImage = styled.div`
   height: 28px;
   border-radius: 50%;
   background-color: #ffffff;
-  background-image: url("https://via.placeholder.com/28");
+  background-image: url(${(props) => props.imgUrl});
   background-size: cover;
   background-position: center;
   cursor: pointer;
