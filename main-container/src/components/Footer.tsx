@@ -7,7 +7,7 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 6rem 6rem;
+    padding: 3rem 2rem;
   box-sizing: border-box;
   gap: 2.5rem;
 `;
@@ -16,7 +16,7 @@ const FooterSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 200px;
+  min-width: 150px;
   padding-left: 3rem;
 `;
 
