@@ -8,6 +8,7 @@ import {GlobalStyle} from "./styles/GlobalStyle.ts";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import {screenModState} from "../../shared-state/atoms.ts"
+import Footer from "./components/Footer.tsx";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HomeApp = lazy(() => import("homeApp/App"));
@@ -58,6 +59,7 @@ const InnerApp = () => {
           <Route path="/login-page" element={<LoginPageApp />} />
         </Routes>
         </Wrap>
+        <Footer />
 
       </Suspense>
     </BrowserRouter>
