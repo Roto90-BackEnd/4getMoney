@@ -4,22 +4,23 @@ import Sec6_1 from "../assets/Section_6_1_image.jpg";
 import Sec6_2 from "../assets/Section_6_2_image.jpg";
 
 const Wrapper = styled.section`
-    background-color: #0f1117;
+    background-color: #131722;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem 2rem;
-  gap: 2rem;
+    padding : 6rem 6rem;
+    gap: 2rem;
 
 `;
 const LeftSection = styled.div`
   display: flex;
-  gap: 6rem;
-  padding-left: 8rem;  
+  gap: 5rem;
+  margin-top : 2rem;
+  padding-left: 5rem;  
 
     img {
-        width: 300px;     
-        height: auto;     
+        width: auto;     
+        height: 600px;   
         object-fit: contain;
     }  
 `;
@@ -35,12 +36,16 @@ const Title = styled.h2`
   line-height: 1.4;
   margin-bottom: 1.5rem;
     letter-spacing: -0.05em;
+    text-align: right;
+    padding-right: 5rem;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   line-height: 1.7;
-  color: whitesmoke;
+  color: darkgray;
+    text-align: right;
+    padding-right: 5rem;
 `;
 
 

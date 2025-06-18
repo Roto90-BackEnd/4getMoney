@@ -7,8 +7,8 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6rem 2rem;
-  gap: 10rem;
+    padding : 6rem 6rem;
+    gap: 10rem;
 
 `;
 
