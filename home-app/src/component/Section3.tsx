@@ -4,7 +4,7 @@ import Image1 from "../assets/web_feature1_device1_img_ko.jpg";
 import Image2 from "../assets/web_feature1_device2_img_ko.jpg";
 
 const Wrapper = styled.section`
-  background-color: #f5f7fa; /* 밝은 회색 배경 */
+  background-color: #f5f7fa; 
   display: flex;
   justify-content: center;
   align-items: center;

@@ -6,7 +6,6 @@ import partner3 from "../assets/esg.jpg";
 import partner4 from "../assets/hana_bank.jpg";
 import partner5 from "../assets/koscom.jpg";
 
-
 const Wrapper = styled.section`
   background-color: #0f1117;
   padding-left:8rem;
@@ -40,17 +39,18 @@ const Logo = styled.img`
 `;
 
 const Section2 = () => {
-    return(
+    return (
         <Wrapper>
-            <Title> 4getMoney’s Partners</Title>
+            <Title>4getMoney’s Partners</Title>
             <LogoContainer>
-                <Logo src={partner1} alt = "Partner 1" />
-                <Logo src={partner2} alt = "Partner 2" />
-                <Logo src={partner3} alt = "Partner 3" />
-                <Logo src={partner4} alt = "Partner 4" />
-                <Logo src={partner5} alt = "Partner 5" />
+                <Logo src={partner1} alt="Partner 1" />
+                <Logo src={partner2} alt="Partner 2" />
+                <Logo src={partner3} alt="Partner 3" />
+                <Logo src={partner4} alt="Partner 4" />
+                <Logo src={partner5} alt="Partner 5" />
             </LogoContainer>
         </Wrapper>
     );
 };
+
 export default Section2;
