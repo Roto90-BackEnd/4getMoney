@@ -2,6 +2,7 @@ import React from 'react';
 
 interface CountdownBannerProps {
     timeLeft: string;
+    price: string;
 }
 
 const CountdownBanner: React.FC<CountdownBannerProps> = ({ timeLeft }) => (
