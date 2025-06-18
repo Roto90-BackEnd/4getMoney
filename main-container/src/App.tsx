@@ -45,7 +45,7 @@ const InnerApp = () => {
           <Route path="/" element={<div>Home Page</div>} />
           <Route path="/home" element={<HomeApp />} />
           <Route path="/theclass/*" element={<TheclassApp />} />
-          <Route path="/watch-list" element={<WatchListApp />} />
+          <Route path="/watch-list/*" element={<WatchListApp />} />
           <Route path="/community" element={<CommunityApp />} />
           <Route
             path="/google-authentication/*"
@@ -86,37 +86,40 @@ const Wrap = styled.div`
   align-items: center;
 `
 const lightTheme = {
-  background: "#ffffff",
+  background: "#F0F0F0",
   text: "#000000",
+  toggleBackground: "#ffffff",
+  toggleText: "#000000",
+  toggleHoverBackground: "#e0e0e0",
+  toggleHoverText: "#000000",
 };
+
 const darkTheme = {
-  background: "#121212",
+  background: "#131722",
   text: "gold",
+  toggleBackground: "#2d3748", // 약간 밝은 회색
+  toggleText: "#ffffff",
+  toggleHoverBackground: "#4a5568", // hover 시 더 밝게
+  toggleHoverText: "#ffffff",
 };
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
-    margin: 0;
-    transition: background-color 0.3s, color 0.3s;
-    font-family: sans-serif;
-  }
-`;
 const ToggleButton = styled.button`
   position: fixed;
   top: 70px;
   right: 20px;
   padding: 8px 16px;
-  border: 2px solid ${({ theme }) => theme.text};
-  background: none;
-  color: ${({ theme }) => theme.text};
+  border: none;
+  background: ${({ theme }) => theme.toggleBackground};
+  color: ${({ theme }) => theme.toggleText};
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.text};
-    color: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.toggleHoverBackground};
+    color: ${({ theme }) => theme.toggleHoverText};
   }
 `;
+

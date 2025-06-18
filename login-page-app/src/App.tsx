@@ -53,7 +53,7 @@ const App = () => {
 
             // navigate 딜레이
             setTimeout(() => {
-                navigate('/');
+                navigate('/home');
             }, 100);
         };
         window.addEventListener('message', receiveMessage);
@@ -92,7 +92,7 @@ const App = () => {
             }
 
             setTimeout(() => {
-                navigate('/');
+                navigate('/home');
             }, 100);
         };
 
@@ -154,7 +154,6 @@ const Wrap = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: RGB(19, 23, 34);
 `
 const TitleWrap = styled.div`
     display: flex;

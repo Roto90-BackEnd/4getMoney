@@ -2,15 +2,16 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  /* CSS Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: ${({ theme }) => theme.background};
+        color: ${({ theme }) => theme.text};
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-  body {
-    margin: 0;
-    font-family: sans-serif;
-  }
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
 `;
