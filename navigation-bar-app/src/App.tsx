@@ -5,18 +5,12 @@ import styled from "styled-components";
 
 import logo from "./assets/logo.png";
 import searchIcon from "./assets/search.svg";
-
-import HomeIcon from "@mui/icons-material/Home";
-import CodeIcon from "@mui/icons-material/Code";
-import JavascriptIcon from "@mui/icons-material/Javascript";
-import ForumIcon from "@mui/icons-material/Forum";
-import SportsGymnasticsIcon from "@mui/icons-material/SportsGymnastics";
-import LoginIcon from "@mui/icons-material/Login";
-import LogoutIcon from "@mui/icons-material/Logout";
+import Swal from "sweetalert2";
 
 const App: React.FC = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const [selectedLang, setSelectedLang] = useState<"KOR" | "ENG">("KOR");
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -24,6 +18,28 @@ const App: React.FC = () => {
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login-page");
+  };
+
+  const notImplemented = () => {
+    Swal.fire({
+      icon: 'info',
+      title: '아직 개발이 완료 되지 않은 페이지 입니다.',
+      text: '홈화면으로 돌아가시 겠습니까?',
+      showCancelButton: true,
+      confirmButtonText: '예',
+      cancelButtonText: '아니오',
+      confirmButtonColor: '#429f50',
+      cancelButtonColor: '#d33',
+    })
+        .then((result) => {
+          if (result.isConfirmed) {
+            navigate("/home");
+          }
+        })
+  }
+
+  const handleLanguageChange = (lang: "KOR" | "ENG") => {
+    setSelectedLang(lang);
   };
 
   useEffect(() => {
@@ -60,9 +76,9 @@ const App: React.FC = () => {
               더 클래스
             </Button>
             <Button onClick={() => navigate("/watch-list")}>관심종목</Button>
-            <Button>포트폴리오</Button>
-            <Button>실험실</Button>
-            <Button>채팅</Button>
+            <Button onClick={notImplemented}>포트폴리오</Button>
+            <Button onClick={notImplemented}>실험실</Button>
+            <Button onClick={notImplemented}>채팅</Button>
             <Button onClick={() => navigate("/community")}>커뮤니티</Button>
             <Search>
               <Input type="text" placeholder="주식, 가상자산 검색" />
@@ -71,9 +87,19 @@ const App: React.FC = () => {
 
           <RightMenuWrap>
             <SelectWrap>
-              <SelectKOR> KOR</SelectKOR>
+              <LangButton
+                  active={selectedLang === "KOR"}
+                  onClick={() => handleLanguageChange("KOR")}
+              >
+                KOR
+              </LangButton>
               <SelectBar> | </SelectBar>
-              <SelectENG>ENG</SelectENG>
+              <LangButton
+                  active={selectedLang === "ENG"}
+                  onClick={() => handleLanguageChange("ENG")}
+              >
+                ENG
+              </LangButton>
             </SelectWrap>
             {token ? (
               <Container ref={dropdownRef}>
@@ -131,14 +157,15 @@ const Wrap = styled.div`
   width: 100vw;
   height: 57px;
   background-color: #131722;
+  z-index: 100;
 `;
 const MenuWrap = styled.div`
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  width: 1110px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 16px;
 `;
 const TitleWrap = styled.div`
   display: flex;
@@ -149,6 +176,10 @@ const TitleWrap = styled.div`
   height: 29px;
   gap: 4px;
   cursor: pointer;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 const TitleLogo = styled.img`
   display: flex;
@@ -181,17 +212,21 @@ const Button = styled.div`
   color: #ffffff;
   font-weight: 300;
   cursor: pointer;
+  white-space: nowrap;
 `;
 const Search = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Input = styled.input`
   width: 300px;
   height: 34px;
   border-radius: 10px;
-
   padding-left: 35px;
   margin-left: 10px;
   background-color: #202637;
@@ -202,44 +237,95 @@ const Input = styled.input`
   color: #7d7f80;
   outline: none;
   border: none;
+
   &::placeholder {
     color: #7d7f80;
     font-size: 10px;
   }
+
+  @media (max-width: 900px) {
+    width: 250px;
+  }
+
+  @media (max-width: 800px) {
+    width: 200px;
+  }
+
+  @media (max-width: 700px) {
+    width: 150px;
+  }
 `;
 const LeftMenuWrap = styled.div`
   display: flex;
-  width: 1070;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 30px;
+
+  @media (max-width: 1080px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 980px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 870px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 760px) {
+    gap: 8px;
+  }
 `;
 const RightMenuWrap = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 50px;
   gap: 10px;
+
+  @media (max-width: 650px) {
+    gap: 8px;
+  }
+
+  @media (max-width: 550px) {
+    gap: 6px;
+  }
+
+  @media (max-width: 500px) {
+    justify-content: flex-end;
+  }
 `;
-const SelectKOR = styled.div`
+const LangButton = styled.div<{ active: boolean }>`
   display: flex;
   font-size: 10.5px;
-  color: #ffffff;
   font-weight: 500;
+  cursor: pointer;
+  color: ${(props) => (props.active ? "#FFFFFF" : "#7d7f80")};
+  user-select: none;
+  outline: none;
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 `;
+
 const SelectBar = styled.div`
   display: flex;
   font-size: 7.9px;
   color: #ffffff;
   font-weight: 500;
-`;
-const SelectENG = styled.div`
-  display: flex;
-  font-size: 10.5px;
-  color: #7d7f80;
-  font-weight: 500;
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 `;
 const SelectWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 `;
 const LoginButton = styled.div`
   display: flex;
@@ -250,6 +336,7 @@ const LoginButton = styled.div`
   color: #ffffff;
   font-weight: 300;
   cursor: pointer;
+  white-space: nowrap;
 `;
 const AppButton = styled.div<{ gradient?: boolean }>`
   display: flex;
@@ -264,10 +351,14 @@ const AppButton = styled.div<{ gradient?: boolean }>`
   font-weight: 350;
   cursor: pointer;
   background: ${({ gradient }) =>
-    gradient
-      ? "linear-gradient(90deg, #FCC853 0%, #FB992A 100%)"
-      : "transparent"};
+      gradient
+          ? "linear-gradient(90deg, #FCC853 0%, #FB992A 100%)"
+          : "transparent"};
   line-height: 31px;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Container = styled.div`
