@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@module-federation/dts-plugin": "^0.15.0",
-    "@mui/material": "^7.1.1"
+    "@mui/material": "^7.1.1",
+    "recoil": "^0.7.7"
   }
 }
