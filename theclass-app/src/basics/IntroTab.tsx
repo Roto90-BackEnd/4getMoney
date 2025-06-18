@@ -4,6 +4,7 @@ import DetailImages from './DetailImages';
 import VideoPlayer from './VideoPlayer';
 import DropdownList from './DropdownList';
 import IntroText from './IntroText';
+import DiscountPrice from "./DiscountPrice.tsx";
 
 interface IntroTabProps {
     detailImages: string[];
@@ -23,8 +24,11 @@ const IntroTab: React.FC<IntroTabProps> = ({
     return (
         <div>
             <CountdownBanner timeLeft={timeLeft} />
+            <DiscountPrice />
             <DetailImages images={detailImages} />
-            <VideoPlayer videoId={videoId} />
+            <div style={{ marginBottom: '2rem' }}>
+                <VideoPlayer videoId={videoId} />
+            </div>
             <DropdownList contents={dropdownContents} />
             <IntroText text={introText} />
         </div>

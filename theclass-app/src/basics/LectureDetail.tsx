@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Curriculum from './Curriculum';
 import Review from './Review';
 import IntroTab from './IntroTab';
+import PurchaseBox from "./PurchaseBox.tsx";
 
 const DEADLINE = new Date('2025-06-19T23:59:59');
 
@@ -163,6 +164,15 @@ const LectureDetail: React.FC = () => {
                 {activeTab === 'curriculum' && <Curriculum />}
                 {activeTab === 'review' && <Review />}
             </div>
+
+            {/* 고정 구매 박스 */}
+            <PurchaseBox
+                timeLeft={timeLeft}
+                price="50% 할인 120,000원"
+                onBuy={() => alert('구매 페이지로 이동합니다.!')}
+            />
+
+
         </div>
     );
 };
