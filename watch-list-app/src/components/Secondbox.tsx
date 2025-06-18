@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../index.css';
 import SearchModal from './SearchModal';
 
-// Secondbox 컴포넌트에는 특별한 props가 없으므로 별도의 interface는 필요 없습니다.
 const Secondbox: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // useState에 boolean 타입을 명시합니다.
 

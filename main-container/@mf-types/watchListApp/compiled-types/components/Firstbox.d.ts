@@ -1,4 +1,5 @@
+import { FC } from 'react';
 import '../index.css';
 import "../App.css";
-declare const Firstbox: () => import("react/jsx-runtime").JSX.Element;
+declare const Firstbox: FC;
 export default Firstbox;
