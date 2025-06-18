@@ -7,6 +7,11 @@ import profile4 from "./assets/profile4.png";
 import profile5 from "./assets/profile5.png";
 
 const profileImages = [
+    profile1,
+    profile2,
+    profile3,
+    profile4,
+    profile5
 ];
 
 function getRandomProfileImage() {
