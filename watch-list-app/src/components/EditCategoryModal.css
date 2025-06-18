@@ -1,0 +1,141 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #202638;
+    padding: 20px;
+    border-radius: 8px;
+    width: 450px;
+    color: white;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.no-categories-message {
+    text-align: center;
+    color: #bbb;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2F3750;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+
+.category-name {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.action-button:hover:not(:disabled) {
+    background-color: #4a5a7f;
+}
+
+.action-button:disabled {
+    color: #666;
+    cursor: not-allowed;
+}
+
+.edit-input-wrapper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 5px;
+}
+
+.category-edit-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #4a5a7f;
+    border-radius: 4px;
+    background-color: #3f4a61;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.save-button, .cancel-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.cancel-button {
+    background-color: #F44336;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button:hover {
+    background-color: #da190b;
+}
