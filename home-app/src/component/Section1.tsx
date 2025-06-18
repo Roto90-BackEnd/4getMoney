@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import phoneImage from "../assets/mockup_ko.png";
-
+import { Modal, Box } from "@mui/material";
 
 const Wrapper = styled.div`
   width: 100vw; 
@@ -11,11 +11,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-    padding : 6rem 6rem;
-    box-sizing: border-box;
-    padding-bottom: 0;  
+  padding : 6rem 6rem;
+  box-sizing: border-box;
+  padding-bottom: 0;  
   overflow: hidden;
-
 `;
 
 const LeftSection = styled.div`
@@ -89,13 +88,35 @@ const RightSection = styled.div`
     height: auto;
     object-fit: contain;
     border-radius: 12px;
-      
   }
-
 `;
 
+const modalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'rgba(19, 23, 34, 0.85)',
+    color: 'white',
+    borderRadius: '12px',
+    boxShadow: 24,
+    p: 4,
+    maxWidth: 400,
+    width: '90%',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '2rem',
+
+};
 
 const Section1 = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <Wrapper>
             <LeftSection>
@@ -105,12 +126,19 @@ const Section1 = () => {
                 </Title>
                 <InputWrapper>
                     <Input placeholder="휴대폰 번호를 입력하세요." />
-                    <Button>앱 설치하기</Button>
+                    <Button onClick={openModal}> 앱 설치하기</Button>
                 </InputWrapper>
             </LeftSection>
             <RightSection>
                 <img src={phoneImage} alt="앱 미리보기" />
             </RightSection>
+
+            <Modal open={isModalOpen} onClose={closeModal}>
+                <Box sx={modalStyle} onClick={e => e.stopPropagation()}>
+                    <p>곧 앱 설치 페이지가 준비됩니다!✨</p>
+                    <Button onClick={closeModal}>닫기</Button>
+                </Box>
+            </Modal>
         </Wrapper>
 
     );

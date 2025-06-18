@@ -60,8 +60,8 @@ const Section7 = () => {
     <Description>서로 소통하며 투자를 지속하는 서비스를 만듭니다.</Description>
 
             <Button onClick={() => console.log("버튼 클릭됨!")}>
-                <img src={Sec7_img1} alt="section7 이미지1" />
-                <img src={Sec7_img2} alt="section7 이미지2" />
+               <a href="https://www.apple.com/kr/app-store/" target="_blank"> <img src={Sec7_img1} alt="section7 이미지1" /></a>
+                <a href="https://play.google.com/store/apps" target="_blank"> <img src={Sec7_img2} alt="section7 이미지2" /></a>
             </Button>
 
             </Wrapper>
