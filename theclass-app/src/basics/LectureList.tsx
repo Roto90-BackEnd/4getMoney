@@ -18,10 +18,13 @@ const LectureList: React.FC = () => {
     return (
         <div
             style={{
-                width: '70%',
+                backgroundColor: '#131722',  // 전체 배경색 지정
+                color: '#fff',
+                width: '80%',
                 margin: '0 auto',
                 padding: '2rem',
                 boxSizing: 'border-box',
+                minHeight: '100vh',
             }}
         >
             <div
@@ -39,11 +42,19 @@ const LectureList: React.FC = () => {
                     >
                         <div
                             style={{
-                                border: '1px solid #ddd',
                                 borderRadius: '8px',
                                 overflow: 'hidden',
-                                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                                transition: 'transform 0.2s',
+                                backgroundColor: '#1a1f2e',
+                                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            }}
+                            onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.03)';
+                                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 12px 30px rgba(255, 255, 255, 0.15)';
+                            }}
+                            onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
+                                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.6)';
                             }}
                         >
                             <img
