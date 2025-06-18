@@ -9,6 +9,7 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import {screenModState} from "../../shared-state/atoms.ts"
 import Footer from "./components/Footer.tsx";
+import MainSwiper from "./components/swiper/Swiper.tsx";
 
 const NavigationBarApp = lazy(() => import("navigationBarApp/App"));
 const HomeApp = lazy(() => import("homeApp/App"));
@@ -43,7 +44,7 @@ const InnerApp = () => {
         </ToggleButton>
         <Wrap>
         <Routes>
-          <Route path="/" element={<div>Home Page</div>} />
+          <Route path="/" element={<MainSwiper/>} />
           <Route path="/home" element={<HomeApp />} />
           <Route path="/theclass/*" element={<TheclassApp />} />
           <Route path="/watch-list/*" element={<WatchListApp />} />
