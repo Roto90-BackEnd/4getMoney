@@ -14,6 +14,8 @@
 
 ## 깃 주소 Link. https://github.com/EDDI-RobotAcademy/4getMoney
 
+## 노 주소 Link. https://www.notion.so/214bbd1e85b180a8ba90f3d634655468?v=214bbd1e85b18088b3b7000cab4c9fec
+
 <br />
 
 ## 📖 주요 기능
