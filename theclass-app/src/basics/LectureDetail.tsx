@@ -101,7 +101,7 @@ const LectureDetail: React.FC = () => {
     return (
         <div
             style={{
-                backgroundColor: '#131722',
+                // backgroundColor: '#131722',
                 color: '#fff',
                 padding: '2rem',
                 maxWidth: '800px',
