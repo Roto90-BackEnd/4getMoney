@@ -40,8 +40,8 @@
   <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
   <img src="https://img.shields.io/badge/recoil-100000?style=for-the-badge&logo=recoil&logoColor=white">
   
-  <img src="https://img.shields.io/badge/kakao-login-FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
-  <img src="https://img.shields.io/badge/google-login-4285F4?style=for-the-badge&logo=google&logoColor=white">
+  <img src="https://img.shields.io/badge/kakao_login-FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
+  <img src="https://img.shields.io/badge/google_login-4285F4?style=for-the-badge&logo=google&logoColor=white">
   <img src="https://img.shields.io/badge/recoil-100000?style=for-the-badge&logo=recoil&logoColor=white">
   <img src="https://img.shields.io/badge/recoil-100000?style=for-the-badge&logo=recoil&logoColor=white">
 
