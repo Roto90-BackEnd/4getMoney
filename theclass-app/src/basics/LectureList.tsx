@@ -18,7 +18,7 @@ const LectureList: React.FC = () => {
     return (
         <div
             style={{
-                backgroundColor: '#131722',  // 전체 배경색 지정
+                // backgroundColor: '#131722',  // 전체 배경색 지정
                 color: '#fff',
                 width: '80%',
                 margin: '0 auto',
