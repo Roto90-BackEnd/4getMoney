@@ -28,6 +28,7 @@
 <br />
 
 ## 🛠 기술 스택
+
 <div align=left>
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
@@ -49,9 +50,11 @@
 </div>
 <br>
 <br>
+
 ## 🔥 트러블 슈팅
+
 <br />
- <details> <summary>➡️드롭다운 2열이 한꺼번에 열리는 상황. 클릭한 드롭다운 탭만 onClick, isOpen, toggle이 작동하게 구현을 하였으나, 클릭한 드롭다운 탭의 옆 탭도 같이 열리는 상황이 발생.</summary> <div markdown="1">
+ <details> <summary>➡️드롭다운 2열이 한꺼번에 열리는 상황. 클릭한 드롭다운 탭만 작동하게 구현을 하였으나, 옆 탭도 같이 열리는 상황이 발생.</summary> <div markdown="1">
   <br/>
    
 **`해결방안`**
@@ -76,7 +79,7 @@
    </div>
   </details>
   
- <details> <summary>➡️로그인후 유저 프로필 이미지를 눌러서 유저메뉴 모달창을 구현 하였으나 로그아웃후 다시 로그인 하면 유저 메뉴 모달창이 그대로 열려 있는 상태로 로그인이 되는 현상 발견</summary> <div markdown="1">
+ <details> <summary>➡️로그인후 프로필 이미지를 눌러서 유저메뉴 모달창을 구현. 로그아웃후 재 로그인시 모달창이 열려 있는 상태로 로그인이 됨.</summary> <div markdown="1">
   <br/>
    
 **`해결방안`**<br/>
@@ -86,7 +89,9 @@
 
 <br />
 <br />
+
 ## 😎 팀원
+
 <table>
    <tr>
     <td align="center"><b><a href="https://github.com/unchul">임운철</a></b></td>
