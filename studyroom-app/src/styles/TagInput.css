@@ -1,0 +1,72 @@
+.tag-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tag-input-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+.selected-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #4a5568;
+    background-color: #1f2937;
+    min-height: 40px;
+    align-items: center;
+}
+
+.placeholder-text {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.available-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none;
+}
+
+.tag-item.selected {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.remove-tag-icon {
+    margin-left: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tag-item.available {
+    background-color: #374151;
+    color: #d1d5db;
+}
+
+.tag-item.available:hover {
+    background-color: #4b5563;
+}
+
+.tag-item.available.active {
+    background-color: #1f2937;
+    color: #6b7280;
+    cursor: default;
+    pointer-events: none;
+}

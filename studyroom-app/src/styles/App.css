@@ -1,0 +1,87 @@
+/* 리스트페이지 화면 */
+body {
+    background-color: #1e2129;
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.app-title {
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 115px;
+    font-size: 50px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+/* 필터 드랍다운 스타일 */
+.filter-container select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #4a4e59;
+    background-color: #2c2f3b;
+    color: white;
+}
+
+/* 모집중 체크박스 */
+.filter-container label {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 모집중 체크박스 크기 조절 */
+.filter-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+/* 검색창 스타일 */
+.search-input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #4a4e59;
+    background-color: #2c2f3b;
+    color: white;
+    min-width: 300px;
+}
+.create-study-btn {
+    background-color: #5865f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.study-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    column-gap: 26px;
+    row-gap: 60px;
+}
+
